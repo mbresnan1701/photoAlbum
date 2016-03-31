@@ -16,7 +16,9 @@ var PhotoView = Backbone.View.extend({
   },
 
   events: {
-    'click' : function(){console.log('!!!!!');}
+    'click' : function(){
+      console.log('thepenismightier');
+    }
 
   }
 });
