@@ -3,7 +3,7 @@ var AppView = Backbone.View.extend({
 
   initialize: function(params) {
     this.albumView = new AlbumView({collection: myAlbum});
-    this.jumboView = new JumbotronView({model: myAlbum.models[0]});
+    this.jumboView = new JumbotronView({model: params.model.selected});
 
   },
 
