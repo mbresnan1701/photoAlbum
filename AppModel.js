@@ -6,7 +6,9 @@ var AppModel = Backbone.Model.extend({
     // this.get('songQueue').on('loaded', function(song){
     //   this.set('currentSong', this.get('songQueue').at(0));
     // }, this);
-
+   this.on('changeJumbo', function(){
+    console.log('THING HAPPENED');
+   })
     
   }
 
