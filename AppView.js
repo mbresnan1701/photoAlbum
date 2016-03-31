@@ -7,8 +7,9 @@ var AppView = Backbone.View.extend({
   // $('body').append(jumboView.$el);
 
   initialize: function(params) {
+    console.log(this.params);
     this.albumView = new AlbumView({collection: myAlbum});
-    // this.jumboView = new LibraryView({collection: this.model.get('library')});
+    this.jumboView = new JumbotronView({model: myAlbum.models[0]});
 
     // this.songQueueView = new SongQueueView({collection: this.model.get('songQueue')});
 
@@ -19,7 +20,7 @@ var AppView = Backbone.View.extend({
   render: function() {
     return this.$el.html([
       this.albumView.$el,
-      // this.jumboView.$el,
+      this.jumboView.$el,
     ]);
   }
 
