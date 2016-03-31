@@ -1,6 +1,6 @@
 var JumbotronView = Backbone.View.extend({
-
-  jumboTemplate: _.template('<p class="jumbotitle"><p class="rating"><%=rating%><%=title%><img src="<%=image%>">'),
+  className:'jumbotron',
+  jumboTemplate: _.template('<p class="jumbotitle"><%=title%></p><p class="rating">Rating: <%=rating%>\n</p><img src="<%=image%>">'),
   
   render: function() {
     var jumboTemplate = this.jumboTemplate;

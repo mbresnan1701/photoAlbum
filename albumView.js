@@ -1,5 +1,6 @@
 var AlbumView = Backbone.View.extend({
   tagName: 'table',
+  className: 'photoAlbum',
   
   render: function() {
     this.$el.html('');
