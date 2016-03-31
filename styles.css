@@ -1,0 +1,19 @@
+body {
+  background-color: lightblue;
+}
+img {
+  height: 200px;
+  width: 200px;
+}
+
+.photoList {
+  position: absolute;
+  left: 10%;
+  top: 20%;
+}
+
+.purdyPicture {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+}
