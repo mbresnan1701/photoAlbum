@@ -4,9 +4,13 @@ var AppView = Backbone.View.extend({
   initialize: function(params) {
     this.albumView = new AlbumView({collection: myAlbum});
     this.jumboView = new JumbotronView({model: this.model.selected});
-    this.model.on('change', function() {
-      console.log('heard chamnged');
-    })
+    // this.jumboView = new JumbotronView({model: this.model.get('selected')});
+
+    this.model.on('selChanged', function(){
+
+      console.log('SKANDKASDADdaDS');
+    }, this);
+
   },
 
 

@@ -4,11 +4,18 @@ var AppModel = Backbone.Model.extend({
 
     this.selected = myAlbum.models[0];
     params.album.on('changeJumbo', function(photo){
-      console.log(this);
       this.selected = photo;
-      console.log(this);
+      this.trigger('selChanged', this);
     });
-    
+    // this.set('selected', myAlbum.models[0]);
+    // params.album.on('changeJumbo', function(photo){
+    //   // console.log(this.get('selected'));
+    //   this.set('selected', photo);
+    //   // console.log(this.get('selected'));
+
+    //   // this.trigger('selChanged', this);
+    //   // console.log(photo);
+    // });
   }
 
 });
