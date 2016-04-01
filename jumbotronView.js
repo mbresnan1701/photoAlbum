@@ -22,6 +22,8 @@ var JumbotronView = Backbone.View.extend({
     'submit #changeRating' : function(e) {
       e.preventDefault();
       console.log(e);
+
+      //update model with data
     }
 
   },
