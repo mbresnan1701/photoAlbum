@@ -7,13 +7,9 @@ var Photo = Backbone.Model.extend({
   
   initialize: function(){},
 
-  setJumbo: function() {
-  	this.trigger('changeJumbo', this); 
-  },
   updateRating: function(newRating) {
-  	this.rating = newRating;
+  	this.set('rating', newRating);
   	this.trigger('ratingChange', this);
-    console.log(this.rating);
   }
 
 

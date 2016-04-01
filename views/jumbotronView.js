@@ -1,6 +1,6 @@
 var JumbotronView = Backbone.View.extend({
   className:'jumbotron',
-  jumboTemplate: _.template('<p class="jumbotitle"><%=title%></p><p class="rating">Rating: <%=rating%>\n \
+  jumboTemplate: _.template('<p class="jumbotitle"><%=title%></p><p class="rating">Rating: <%=rating%>\
     </p><img src="<%=image%>">\
     <form id="changeRating">Change Rating: \
     <select id="ratingselect"form="changeRating" name="ratings">\
@@ -13,8 +13,8 @@ var JumbotronView = Backbone.View.extend({
   
   initialize: function(params) {
     this.render();
-    console.log(this.collection);
     this.collection.on('indexChange', this.render, this);
+    this.collection.on('ratingChanged', this.render, this);
 
   },
   events: {
@@ -24,19 +24,14 @@ var JumbotronView = Backbone.View.extend({
       
       this.collection.models[this.collection.index].updateRating(newRating);
  
-      //update model with data
     }
 
   },
-  doThing: function() {
 
-    console.log('Heard index change');
-  },
 
   render: function() {
     var jumboTemplate = this.jumboTemplate;
 
-    // this.$el.html(jumboTemplate(this.model.selected.attributes));
     this.$el.html(jumboTemplate(this.collection.models[this.collection.index].attributes));
 
     return this;
