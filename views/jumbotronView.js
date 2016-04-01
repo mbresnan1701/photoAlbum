@@ -13,7 +13,8 @@ var JumbotronView = Backbone.View.extend({
   
   initialize: function(params) {
     this.render();
-    // this.collection.on('change', this.render, this);
+    console.log(this.collection);
+    this.collection.on('indexChange', this.render, this);
 
   },
   events: {
@@ -26,6 +27,10 @@ var JumbotronView = Backbone.View.extend({
       //update model with data
     }
 
+  },
+  doThing: function() {
+
+    console.log('Heard index change');
   },
 
   render: function() {
