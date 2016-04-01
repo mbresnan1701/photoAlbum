@@ -13,6 +13,7 @@ var Photo = Backbone.Model.extend({
   updateRating: function(newRating) {
   	this.rating = newRating;
   	this.trigger('ratingChange', this);
+    console.log(this.rating);
   }
 
 

@@ -12,7 +12,8 @@ var PhotoView = Backbone.View.extend({
 
   events: {
     'click' : function(){
-      this.model.setJumbo();
+      // console.log(this.model.collection);
+      this.model.collection.changeIndex(this.model);
     }
 
   },

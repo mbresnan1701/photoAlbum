@@ -12,10 +12,8 @@ var JumbotronView = Backbone.View.extend({
 </select> <input type="submit" value="Submit"></form> '),
   
   initialize: function(params) {
-
     this.render();
-    console.log(this.model);
-    this.model.on('change', this.render, this);
+    // this.collection.on('change', this.render, this);
 
   },
   events: {
@@ -23,7 +21,7 @@ var JumbotronView = Backbone.View.extend({
       e.preventDefault();
       var newRating = parseInt($('#ratingselect')['0'].value);
       
-      this.model.updateRating(newRating);
+      this.collection.models[this.collection.index].updateRating(newRating);
  
       //update model with data
     }
@@ -31,11 +29,10 @@ var JumbotronView = Backbone.View.extend({
   },
 
   render: function() {
-    console.log(this.model);
     var jumboTemplate = this.jumboTemplate;
 
     // this.$el.html(jumboTemplate(this.model.selected.attributes));
-    this.$el.html(jumboTemplate(this.model.attributes));
+    this.$el.html(jumboTemplate(this.collection.models[this.collection.index].attributes));
 
     return this;
   }
