@@ -3,7 +3,7 @@ var JumbotronView = Backbone.View.extend({
   jumboTemplate: _.template('<p class="jumbotitle"><%=title%></p><p class="rating">Rating: <%=rating%>\n \
     </p><img src="<%=image%>">\
     <form id="changeRating">Change Rating: \
-    <select form="#changeRating" name="ratings">\
+    <select id="ratingselect"form="changeRating" name="ratings">\
   <option value="1">1</option>\
   <option value="2">2</option>\
   <option value="3">3</option>\
@@ -21,8 +21,10 @@ var JumbotronView = Backbone.View.extend({
   events: {
     'submit #changeRating' : function(e) {
       e.preventDefault();
-      console.log(e);
-
+      var newRating = parseInt($('#ratingselect')['0'].value);
+      
+      this.model.updateRating(newRating);
+ 
       //update model with data
     }
 

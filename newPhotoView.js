@@ -1,16 +1,28 @@
 var NewPhotoView = Backbone.View.extend({
-  tagName: 'tr',
+  
 
   newTemplate: _.template('<form id="newPhoto">New Photo Url: \
-    <input type="text" name="url" value="Enter Url"><br><br>\
+    <input type="text" id="newUrl" name="url" placeholder="Enter Url"><br><br> New Photo Title:\
+    <input type="text" id="newTitle" name="url" placeholder="Enter Title"><br><br> \
     <input type="submit" value="Submit"></form> '),
 
   
 
   initialize: function() {
     this.render();
-  },
 
+
+  },
+  events: {
+    'submit #newPhoto' : function(e) {
+      e.preventDefault();
+      var newPhoto = new Photo({title: $('#newTitle')['0'].value, image: $('#newUrl')['0'].value });
+  
+      this.collection.add(newPhoto);
+  
+    }
+
+  },
   
   
   render: function() {
